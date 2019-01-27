@@ -5,7 +5,7 @@ $(document).ready(function() {
     let submitButton = $("#submitButton");
     let textBox = $("#user-text");
 
-    let muppetCharacterArr = [ "Grover", "Big Bird", "Kermit", "Miss Piggy", "Stadtler & Waldorf", "Elmo", "Rizzo", "Fozzie" ];
+    let muppetCharacterArr = [ "Grover", "Big Bird", "Kermit", "Miss Piggy", "Stadtler & Waldorf", "Elmo", "Rizzo the Rat", "Fozzie" ];
 
     muppetCharacterArr.forEach((val) => buttonBuilder(val));
 
@@ -50,9 +50,9 @@ $(document).ready(function() {
     function placeNewCard(gifObj) {
         let newCard = $("<div>").addClass("card w-25 d-inline-block m-2");
 
-        let cardTitle = $("<h6>").addClass("card-title").text(gifObj.title);
+        let cardTitle = $("<h6>").addClass("card-header").text(gifObj.title);
 
-        let cardTop = $("<img>").addClass("card-img-top").attr("width", "100px");
+        let cardTop = $("<img>").addClass("card-img").attr("width", "100px");
         cardTop.data("state", "still");
         cardTop.attr("src", gifObj.images.original_still.url);
 
@@ -69,7 +69,7 @@ $(document).ready(function() {
 
         let cardRating = $("<div>").addClass("card-body").text(gifObj.rating);
 
-        newCard.append(cardTop).append(cardTitle).append(cardRating);
+        newCard.append(cardTitle).append(cardTop).append(cardRating);
         gifArea.prepend(newCard);
     }
 
